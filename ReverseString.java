@@ -1,21 +1,23 @@
-package Recursion;
+package Methods_Functions;
 import java.util.Scanner;
 public class ReverseString {
-    public static void  printrev(String str,int idx){
-        if(idx==0)
-        {
-            System.out.print(str.charAt(idx));
-            return;
+    public static void main(String args[])
+    {
+        Scanner in=new Scanner(System.in);
+        String str;
+        str=in.next();
+
+        StringBuilder sb=new StringBuilder(str);
+        for(int i=0;i<sb.length()/2;i++) {
+            int front = i;
+            int back = sb.length() - 1 - i;
+
+            char frontchar = sb.charAt(front);
+            char Backchar = sb.charAt(back);
+
+            sb.setCharAt(front, Backchar);
+            sb.setCharAt(back, frontchar);
         }
-        System.out.print(str.charAt(idx));
-        printrev(str,idx-1);
-
-    }
-    public static void main(String[] args){
-    Scanner sc=new Scanner(System.in);
-    String str=sc.nextLine();
-    int idx=str.length()-1;
-    printrev(str,idx);
-
+        System.out.println(sb);
     }
 }
